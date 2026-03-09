@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Witches Circle — Indie Game Studio</title>
   <meta name="description" content="The Witches Circle is a tiny independent studio developing DOPROS — a dark, Orwell-inspired narrative interrogation game." />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -34,9 +38,14 @@
     <section id="game" class="section section--dark">
       <div class="container">
         <h2>Our Game</h2>
+
+        <div class="game-banner">
+          <img src="assets/images/dopros-banner.png" alt="DOPROS — key art" />
+        </div>
+
         <div class="game-card">
           <div class="game-info">
-            <h3 class="game-title">DOPROS</h3>
+            <img src="assets/images/dopros-logo.png" alt="DOPROS" class="game-logo" />
             <p class="game-status">In Development</p>
             <p class="game-description">
               A narrative-driven interrogation experience with a branching plot, set in a dystopian
@@ -56,6 +65,18 @@
             </div>
           </div>
         </div>
+
+        <div class="screenshots">
+          <img src="assets/images/screenshots/screenshot-1.png" alt="DOPROS screenshot 1" loading="lazy" />
+          <img src="assets/images/screenshots/screenshot-2.png" alt="DOPROS screenshot 2" loading="lazy" />
+          <img src="assets/images/screenshots/screenshot-4.png" alt="DOPROS screenshot 4" loading="lazy" />
+          <img src="assets/images/screenshots/screenshot-5.png" alt="DOPROS screenshot 5" loading="lazy" />
+        </div>
+
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer">
+          <img src="" alt="" id="lightbox-img" />
+        </div>
+
       </div>
     </section>
 
@@ -99,7 +120,6 @@
         </div>
         <p class="contact-line">
           Press &amp; business inquiries:
-          <!-- Email split to reduce basic spam scraping -->
           <a href="#" class="email-link" data-user="the.witches.circle.games" data-domain="gmail.com">
             the.witches.circle.games&#64;gmail.com
           </a>
@@ -116,11 +136,31 @@
   </footer>
 
   <script>
-    // Assemble mailto links at runtime to reduce spam scraping
     document.querySelectorAll('.email-link').forEach(function(link) {
       var addr = link.dataset.user + '@' + link.dataset.domain;
       link.href = 'mailto:' + addr;
     });
+
+    (function () {
+      var lightbox = document.getElementById('lightbox');
+      var lightboxImg = document.getElementById('lightbox-img');
+
+      document.querySelectorAll('.screenshots img').forEach(function (img) {
+        img.addEventListener('click', function () {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('active');
+        });
+      });
+
+      lightbox.addEventListener('click', function () {
+        lightbox.classList.remove('active');
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') lightbox.classList.remove('active');
+      });
+    })();
   </script>
 
 </body>

@@ -19,8 +19,9 @@
   --color-muted:     #9a8aaa;
   --color-patreon:   #f96854;
 
-  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-heading: 'IM Fell English', Georgia, serif;
   --font-body:    'Segoe UI', system-ui, sans-serif;
+  --font-game:    'Special Elite', 'Courier New', monospace;
 
   --max-width: 860px;
   --section-padding: 4rem 1.5rem;
@@ -90,19 +91,34 @@ header {
   max-width: 65ch;
 }
 
+/* --- Game Banner --- */
+.game-banner {
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-surface);
+}
+
+.game-banner img {
+  width: 100%;
+  display: block;
+}
+
 /* --- Game Card --- */
 .game-card {
   background: var(--color-surface);
   border: 1px solid var(--color-accent);
   border-radius: 8px;
   padding: 2rem;
+  font-family: var(--font-game);
 }
 
-.game-title {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  color: var(--color-accent-2);
-  margin-bottom: 0.5rem;
+.game-logo {
+  display: block;
+  max-width: 320px;
+  margin-bottom: 1rem;
+  /* Black logo on white bg — invert to white on transparent-ish for dark site */
+  filter: invert(1) brightness(0.9);
 }
 
 .game-status {
@@ -116,11 +132,13 @@ header {
   padding: 0.2rem 0.75rem;
   border-radius: 99px;
   margin-bottom: 1rem;
+  font-family: var(--font-body);
 }
 
 .game-description {
   color: var(--color-text);
   margin-top: 0.75rem;
+  line-height: 1.8;
 }
 
 .game-features {
@@ -147,6 +165,7 @@ header {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
+  font-family: var(--font-body);
   transition: opacity 0.2s;
 }
 
@@ -164,6 +183,69 @@ header {
   background: var(--color-accent);
   color: #fff;
   opacity: 1;
+}
+
+/* --- Screenshots --- */
+.screenshots {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+/* Make the first screenshot span full width as a hero */
+.screenshots img:first-child {
+  grid-column: 1 / -1;
+}
+
+.screenshots img {
+  width: 100%;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid var(--color-surface);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.screenshots img {
+  cursor: zoom-in;
+}
+
+.screenshots img:hover {
+  transform: scale(1.02);
+  border-color: var(--color-accent);
+}
+
+/* --- Lightbox --- */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 6px;
+  box-shadow: 0 0 40px rgba(155, 89, 182, 0.4);
+  cursor: zoom-out;
+}
+
+@media (max-width: 560px) {
+  .screenshots {
+    grid-template-columns: 1fr;
+  }
+  .screenshots img:first-child {
+    grid-column: auto;
+  }
 }
 
 /* --- Team --- */
@@ -186,12 +268,14 @@ header {
 .member-name {
   font-weight: 600;
   color: var(--color-accent-2);
+  font-family: var(--font-heading);
 }
 
 .member-title {
   font-size: 0.8rem;
   color: var(--color-accent);
   font-style: italic;
+  font-family: var(--font-heading);
 }
 
 .member-role {
@@ -219,16 +303,6 @@ header {
 
 .social-btn:hover {
   background: var(--color-accent);
-  color: #fff;
-}
-
-.social-btn--patreon {
-  border-color: var(--color-patreon);
-  color: var(--color-patreon);
-}
-
-.social-btn--patreon:hover {
-  background: var(--color-patreon);
   color: #fff;
 }
 
