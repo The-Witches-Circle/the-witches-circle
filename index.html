@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Witches Circle — Indie Game Studio</title>
+  <meta name="description" content="The Witches Circle is a tiny independent studio developing DOPROS — a dark, Orwell-inspired narrative interrogation game." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">The Witches Circle</h1>
+      <p class="tagline">Indie Game Studio</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>Who We Are</h2>
+        <p>
+          The Witches Circle is a tiny independent studio established by game industry enthusiasts.
+          Right now, we are developing our debut game — an unconventional narrative experience featuring
+          a branching dialogue system and a captivating, dark Orwell-inspired story that unfolds as you let it.
+        </p>
+      </div>
+    </section>
+
+    <!-- Game -->
+    <section id="game" class="section section--dark">
+      <div class="container">
+        <h2>Our Game</h2>
+        <div class="game-card">
+          <div class="game-info">
+            <h3 class="game-title">DOPROS</h3>
+            <p class="game-status">In Development</p>
+            <p class="game-description">
+              A narrative-driven interrogation experience with a branching plot, set in a dystopian
+              Orwell-inspired world. You are a regular person, Dough, who must undergo an interrogation
+              procedure and possibly break free — yet the Interrogator knows their job well and will do
+              anything to expose you.
+            </p>
+            <ul class="game-features">
+              <li>Shape your protagonist through your answers — but some views might be violations of the law.</li>
+              <li>Deep, branching narrative gameplay leading to a variety of different outcomes.</li>
+              <li>Randomly picked persuasion mini-games to deceive or counteract the Interrogator.</li>
+              <li>Act differently to find the right approach, or face the consequences of your choices.</li>
+            </ul>
+            <div class="game-links">
+              <a href="https://store.steampowered.com/app/4348260" class="game-btn" target="_blank" rel="noopener">View on Steam</a>
+              <a href="https://drive.google.com/drive/folders/1Jz_JU9Nu0KG13zo6m7IpwoIm4dbHfF0O?usp=sharing" class="game-btn game-btn--secondary" target="_blank" rel="noopener">Press Kit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="section">
+      <div class="container">
+        <h2>The Team</h2>
+        <ul class="team-list">
+          <li class="team-member">
+            <span class="member-name">Mila Ponomareva</span>
+            <span class="member-title">The Cauldron Mistress</span>
+            <span class="member-role">Creative &amp; Marketing Head</span>
+          </li>
+          <li class="team-member">
+            <span class="member-name">Helen Allien Poe</span>
+            <span class="member-title">Rune Enchanter</span>
+            <span class="member-role">Lead Programmer &amp; Sound Designer</span>
+          </li>
+          <li class="team-member">
+            <span class="member-name">Viola Voit</span>
+            <span class="member-title">Visual Conjurer</span>
+            <span class="member-role">Art Lead</span>
+          </li>
+          <li class="team-member">
+            <span class="member-name">Galina D. Cravos</span>
+            <span class="member-title">Grimoire Keeper</span>
+            <span class="member-role">Project &amp; PR Manager</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Connect -->
+    <section id="connect" class="section section--dark">
+      <div class="container">
+        <h2>Follow Our Journey</h2>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/company/thewitchescircle/" class="social-btn" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="#" class="social-btn social-btn--disabled" aria-disabled="true">Twitter / X — coming soon</a>
+          <a href="#" class="social-btn social-btn--disabled" aria-disabled="true">Discord — coming soon</a>
+        </div>
+        <p class="contact-line">
+          Press &amp; business inquiries:
+          <!-- Email split to reduce basic spam scraping -->
+          <a href="#" class="email-link" data-user="the.witches.circle.games" data-domain="gmail.com">
+            the.witches.circle.games&#64;gmail.com
+          </a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 The Witches Circle. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Assemble mailto links at runtime to reduce spam scraping
+    document.querySelectorAll('.email-link').forEach(function(link) {
+      var addr = link.dataset.user + '@' + link.dataset.domain;
+      link.href = 'mailto:' + addr;
+    });
+  </script>
+
+</body>
+</html>
