@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Special+Elite&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
@@ -27,22 +28,21 @@
       <div class="container">
         <h2>Our Game</h2>
 
-
-        <div class="game-card">
-          <div class="game-info">
+        <div class="game-layout">
+          <div class="game-card">
             <img src="assets/images/dopros-logo.png" alt="DOPROS" class="game-logo" />
-            
+
             <div class="game-links">
               <a href="https://store.steampowered.com/app/4348260" class="game-btn" target="_blank" rel="noopener">Wishlist on Steam</a>
               <a href="https://drive.google.com/drive/folders/1Jz_JU9Nu0KG13zo6m7IpwoIm4dbHfF0O?usp=sharing" class="game-btn game-btn--secondary" target="_blank" rel="noopener">Press Kit</a>
-              <a href="#" class="social-btn social-btn--disabled" aria-disabled="true">In Development</a>
+              <span class="game-btn game-btn--secondary" style="opacity:0.45;cursor:default;">In Development</span>
             </div>
             <p class="game-description">
-              A narrative-driven interrogation experience with a branching plot, set in a dystopian
-              Orwell-inspired world. You are a regular person, Dough, who must undergo an interrogation
-              procedure and possibly break free — yet the Interrogator knows their job well and will do
-              anything to expose you.
-            </p>
+                A narrative-driven interrogation experience with a branching plot, set in a dystopian
+                Orwell-inspired world. You are a regular person, Dough, who must undergo an interrogation
+                procedure and possibly break free — yet the Interrogator knows their job well and will do
+                anything to expose you.
+              </p>
             <ul class="game-features">
               <li>Shape your protagonist through your answers — but some views might be violations of the law.</li>
               <li>Deep, branching narrative gameplay leading to a variety of different outcomes.</li>
@@ -50,13 +50,13 @@
               <li>Act differently to find the right approach, or face the consequences of your choices.</li>
             </ul>
           </div>
-        </div>
 
-        <div class="screenshots">
-          <img src="assets/images/screenshots/screenshot-1.png" alt="DOPROS screenshot 1" loading="lazy" />
-          <img src="assets/images/screenshots/screenshot-2.png" alt="DOPROS screenshot 2" loading="lazy" />
-          <img src="assets/images/screenshots/screenshot-4.png" alt="DOPROS screenshot 4" loading="lazy" />
-          <img src="assets/images/screenshots/screenshot-5.png" alt="DOPROS screenshot 5" loading="lazy" />
+          <div class="screenshots">
+            <img src="assets/images/screenshots/screenshot-1.png" alt="DOPROS screenshot 1" loading="lazy" />
+            <img src="assets/images/screenshots/screenshot-2.png" alt="DOPROS screenshot 2" loading="lazy" />
+            <img src="assets/images/screenshots/screenshot-4.png" alt="DOPROS screenshot 4" loading="lazy" />
+            <img src="assets/images/screenshots/screenshot-5.png" alt="DOPROS screenshot 5" loading="lazy" />
+          </div>
         </div>
 
         <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer">
@@ -65,6 +65,9 @@
 
       </div>
     </section>
+
+    <!-- About + Team row -->
+    <div class="about-team-row">
 
     <!-- About -->
     <section id="about" class="section">
@@ -107,21 +110,26 @@
       </div>
     </section>
 
+    </div><!-- /.about-team-row -->
+
     <!-- Connect -->
     <section id="connect" class="section section--dark">
       <div class="container">
         <h2>Follow Our Journey</h2>
         <div class="social-links">
-          <a href="https://www.linkedin.com/company/thewitchescircle/" class="social-btn" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="#" class="social-btn social-btn--disabled" aria-disabled="true">Twitter / X — coming soon</a>
-          <a href="#" class="social-btn social-btn--disabled" aria-disabled="true">Discord — coming soon</a>
-        </div>
-        <p class="contact-line">
-          Press &amp; business inquiries:
-          <a href="#" class="email-link" data-user="the.witches.circle.games" data-domain="gmail.com">
-            the.witches.circle.games&#64;gmail.com
+          <a href="https://www.linkedin.com/company/thewitchescircle/" class="social-icon-btn" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
           </a>
-        </p>
+          <span class="social-icon-btn social-icon-btn--disabled" aria-label="Twitter / X — coming soon" title="Twitter / X — coming soon">
+            <i class="fa-brands fa-x-twitter"></i>
+          </span>
+          <a href="https://discord.gg/TPscTx6byT" class="social-icon-btn" target="_blank" rel="noopener" aria-label="Discord">
+            <i class="fa-brands fa-discord"></i>
+          </a>
+          <a href="#" class="social-icon-btn" aria-label="Email" data-user="the.witches.circle.games" data-domain="gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -134,7 +142,7 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.email-link').forEach(function(link) {
+    document.querySelectorAll('.email-link, .social-icon-btn[data-user]').forEach(function(link) {
       var addr = link.dataset.user + '@' + link.dataset.domain;
       link.href = 'mailto:' + addr;
     });

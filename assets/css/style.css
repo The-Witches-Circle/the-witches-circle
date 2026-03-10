@@ -23,7 +23,7 @@
   --font-body:    'Segoe UI', system-ui, sans-serif;
   --font-game:    'Special Elite', 'Courier New', monospace;
 
-  --max-width: 860px;
+  --max-width: 1200px;
   --section-padding: 4rem 1.5rem;
 }
 
@@ -88,20 +88,14 @@ header {
 
 .section p {
   color: var(--color-text);
-  max-width: 65ch;
 }
 
-/* --- Game Banner --- */
-.game-banner {
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--color-surface);
-}
-
-.game-banner img {
-  width: 100%;
-  display: block;
+/* --- Game Layout (side-by-side on desktop) --- */
+.game-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
 }
 
 /* --- Game Card --- */
@@ -121,19 +115,6 @@ header {
   filter: invert(1) brightness(0.9);
 }
 
-.game-status {
-  display: inline-block;
-  background: var(--color-accent);
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.75rem;
-  border-radius: 99px;
-  margin-bottom: 1rem;
-  font-family: var(--font-body);
-}
 
 .game-description {
   color: var(--color-text);
@@ -187,15 +168,10 @@ header {
 
 /* --- Screenshots --- */
 .screenshots {
-  margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 0.75rem;
-}
-
-/* Make the first screenshot span full width as a hero */
-.screenshots img:first-child {
-  grid-column: 1 / -1;
+  align-content: start;
 }
 
 .screenshots img {
@@ -203,11 +179,8 @@ header {
   display: block;
   border-radius: 6px;
   border: 1px solid var(--color-surface);
-  transition: transform 0.2s, border-color 0.2s;
-}
-
-.screenshots img {
   cursor: zoom-in;
+  transition: transform 0.2s, border-color 0.2s;
 }
 
 .screenshots img:hover {
@@ -239,12 +212,44 @@ header {
   cursor: zoom-out;
 }
 
-@media (max-width: 560px) {
-  .screenshots {
+@media (max-width: 768px) {
+  .game-layout {
     grid-template-columns: 1fr;
   }
-  .screenshots img:first-child {
-    grid-column: auto;
+
+  .screenshots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- About + Team row --- */
+.about-team-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-team-row .container {
+  max-width: none;
+}
+
+.about-team-row .section {
+  border-right: 1px solid var(--color-surface);
+}
+
+.about-team-row .section:last-child {
+  border-right: none;
+}
+
+@media (max-width: 768px) {
+  .about-team-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-team-row .section {
+    border-right: none;
   }
 }
 
@@ -252,7 +257,7 @@ header {
 .team-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
@@ -284,36 +289,46 @@ header {
 }
 
 /* --- Social Links --- */
+#connect .container {
+  text-align: center;
+}
+
+
 .social-links {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.social-btn {
-  display: inline-block;
-  padding: 0.65rem 1.5rem;
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
   border: 1px solid var(--color-accent);
-  border-radius: 6px;
+  border-radius: 50%;
   color: var(--color-accent-2);
   text-decoration: none;
-  font-weight: 600;
+  font-size: 1.3rem;
   transition: background 0.2s, color 0.2s;
+  cursor: pointer;
 }
 
-.social-btn:hover {
+.social-icon-btn:hover {
   background: var(--color-accent);
   color: #fff;
 }
 
-.social-btn--disabled {
-  opacity: 0.4;
+.social-icon-btn--disabled {
+  opacity: 0.35;
   cursor: default;
   pointer-events: none;
 }
 
 .contact-line {
-  margin-top: 1.5rem;
   font-size: 0.9rem;
   color: var(--color-muted);
 }
