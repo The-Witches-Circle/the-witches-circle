@@ -10,13 +10,13 @@
 }
 
 :root {
-  --color-bg:        #0e0e0e;
-  --color-bg-dark:   #080808;
-  --color-surface:   #1c1c1c;
-  --color-accent:    #888888;
-  --color-accent-2:  #d0d0d0;
-  --color-text:      #e8e8e8;
-  --color-muted:     #707070;
+  --color-bg:        #0e0a14;
+  --color-bg-dark:   #0a0710;
+  --color-surface:   #1a1228;
+  --color-accent:    #9b59b6;
+  --color-accent-2:  #c39bd3;
+  --color-text:      #e8dff0;
+  --color-muted:     #9a8aaa;
 
   --font-heading: 'IM Fell English', Georgia, serif;
   --font-body:    'Segoe UI', system-ui, sans-serif;
@@ -199,7 +199,7 @@ header {
   max-width: 90vw;
   max-height: 90vh;
   border-radius: 6px;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 40px rgba(155, 89, 182, 0.4);
   cursor: zoom-out;
 }
 
