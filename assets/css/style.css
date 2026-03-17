@@ -228,6 +228,42 @@ header .container {
   cursor: zoom-out;
 }
 
+.lightbox-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(155, 89, 182, 0.25);
+  border: 1px solid var(--color-accent);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 1;
+  padding: 0;
+}
+
+.lightbox-btn img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+  display: block;
+}
+
+.lightbox-btn:hover {
+  background: var(--color-accent);
+}
+
+.lightbox-btn--prev {
+  left: 1.5rem;
+  transform: translateY(-50%) scaleX(-1);
+}
+
+.lightbox-btn--next { right: 1.5rem; }
+
 /* --- Team --- */
 .team-list {
   list-style: none;

@@ -58,7 +58,9 @@
         </div>
 
         <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer">
+          <button class="lightbox-btn lightbox-btn--prev" id="lightbox-prev" aria-label="Previous screenshot"><img src="assets/images/arrow.png" alt="" /></button>
           <img src="" alt="" id="lightbox-img" />
+          <button class="lightbox-btn lightbox-btn--next" id="lightbox-next" aria-label="Next screenshot"><img src="assets/images/arrow.png" alt="" /></button>
         </div>
 
       </div>
@@ -95,7 +97,7 @@
             <div class="member-info">
               <span class="member-name">Helen Allien Poe</span>
               <span class="member-title">Rune Enchanter</span>
-              <span class="member-role">Lead Programmer &amp; Sound Designer</span>
+              <span class="member-role">Tech Co-founder &amp; Head of R&amp;D</span>
               <!-- <span class="member-quote">We are the granddaughters of the witches you couldn't burn.</span> -->
             </div>
           </li>
@@ -159,13 +161,28 @@
     (function () {
       var lightbox = document.getElementById('lightbox');
       var lightboxImg = document.getElementById('lightbox-img');
+      var imgs = Array.from(document.querySelectorAll('.screenshots img'));
+      var current = 0;
 
-      document.querySelectorAll('.screenshots img').forEach(function (img) {
-        img.addEventListener('click', function () {
-          lightboxImg.src = img.src;
-          lightboxImg.alt = img.alt;
-          lightbox.classList.add('active');
-        });
+      function show(index) {
+        current = (index + imgs.length) % imgs.length;
+        lightboxImg.src = imgs[current].src;
+        lightboxImg.alt = imgs[current].alt;
+        lightbox.classList.add('active');
+      }
+
+      imgs.forEach(function (img, i) {
+        img.addEventListener('click', function () { show(i); });
+      });
+
+      document.getElementById('lightbox-prev').addEventListener('click', function (e) {
+        e.stopPropagation();
+        show(current - 1);
+      });
+
+      document.getElementById('lightbox-next').addEventListener('click', function (e) {
+        e.stopPropagation();
+        show(current + 1);
       });
 
       lightbox.addEventListener('click', function () {
@@ -173,7 +190,10 @@
       });
 
       document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('active')) return;
         if (e.key === 'Escape') lightbox.classList.remove('active');
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
       });
     })();
   </script>
