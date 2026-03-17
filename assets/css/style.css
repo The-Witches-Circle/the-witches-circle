@@ -77,15 +77,17 @@ header .container {
 .logo-img {
   max-height: 90px;
   width: auto;
+  max-width: 100%;
   filter: invert(1) brightness(0.9);
 }
 
 .tagline {
-  color: var(--color-muted);
+  color: var(--color-text);
   font-size: 1rem;
   margin-top: 1rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
 }
 
 /* --- Sections --- */
@@ -122,9 +124,11 @@ header .container {
 .game-logo {
   display: block;
   max-width: 320px;
+  width: 100%;
   margin-bottom: 1rem;
-  /* Black logo on white bg — invert to white on transparent-ish for dark site */
+  /* Black logo on white bg — invert to white; screen blend removes the resulting black bg on dark cards */
   filter: invert(1) brightness(0.9);
+  mix-blend-mode: screen;
 }
 
 
@@ -231,6 +235,41 @@ header .container {
 
   .team-list {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 16px;
+  }
+
+  header {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .logo-img {
+    max-height: 60px;
+  }
+
+  .game-card {
+    padding: 1.25rem;
+  }
+
+  .game-logo {
+    max-width: 100%;
+  }
+
+  .screenshots {
+    grid-template-columns: 1fr;
+  }
+
+  .member-photo {
+    display: none;
+  }
+
+  .social-icon-btn {
+    width: 46px;
+    height: 46px;
   }
 }
 
