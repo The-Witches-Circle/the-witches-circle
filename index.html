@@ -50,6 +50,13 @@
           </ul>
         </div>
 
+        <div class="trailer-embed" id="trailer">
+          <img src="assets/images/dopros-banner.png" alt="DOPROS — Official Trailer" class="trailer-thumb" />
+          <button class="trailer-play" aria-label="Play trailer">
+            <i class="fa-solid fa-play"></i>
+          </button>
+        </div>
+
         <div class="screenshots">
           <img src="assets/images/screenshots/screenshot-1.png" alt="DOPROS screenshot 1" loading="lazy" />
           <img src="assets/images/screenshots/screenshot-2.png" alt="DOPROS screenshot 2" loading="lazy" />
@@ -81,7 +88,7 @@
     <!-- Team -->
     <section id="team" class="section section--dark">
       <div class="container">
-        <h2>The Team</h2>
+        <h2>Our Coven</h2>
         <ul class="team-list">
           <li class="team-member">
             <img src="assets/images/team/mila.jpg" alt="Mila Ponomareva" class="member-photo" loading="lazy" />
@@ -97,7 +104,7 @@
             <div class="member-info">
               <span class="member-name">Helen Allien Poe</span>
               <span class="member-title">Rune Enchanter</span>
-              <span class="member-role">Tech Co-founder &amp; Head of R&amp;D</span>
+              <span class="member-role">Head of Tech &amp; R&amp;D</span>
               <!-- <span class="member-quote">We are the granddaughters of the witches you couldn't burn.</span> -->
             </div>
           </li>
@@ -160,6 +167,21 @@
       var addr = link.dataset.user + '@' + link.dataset.domain;
       link.href = 'mailto:' + addr;
     });
+
+    (function () {
+      var trailer = document.getElementById('trailer');
+      trailer.addEventListener('click', function () {
+        var iframe = document.createElement('iframe');
+        //iframe.src = 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1';
+        iframe.title = 'DOPROS — Official Trailer';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
+        trailer.innerHTML = '';
+        trailer.appendChild(iframe);
+        trailer.style.cursor = 'default';
+      });
+    })();
 
     (function () {
       var lightbox = document.getElementById('lightbox');
