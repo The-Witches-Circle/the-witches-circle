@@ -147,13 +147,6 @@ header .container {
   gap: 0.4rem;
 }
 
-.game-links {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
 .game-btn {
   display: inline-block;
   padding: 0.6rem 1.4rem;
@@ -425,26 +418,6 @@ header .container {
   color: #fff;
 }
 
-.social-icon-btn--disabled {
-  opacity: 0.35;
-  cursor: default;
-  pointer-events: none;
-}
-
-.contact-line {
-  font-size: 0.9rem;
-  color: var(--color-muted);
-}
-
-.email-link {
-  color: var(--color-accent-2);
-  text-decoration: none;
-}
-
-.email-link:hover {
-  text-decoration: underline;
-}
-
 /* --- Footer --- */
 footer {
   background-color: var(--color-bg-dark);
@@ -456,18 +429,18 @@ footer {
 }
 
 /* --- Responsive --- */
+@media (max-width: 1100px) {
+  .trailer-steam-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .screenshots {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .team-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 1100px) {
-  .trailer-steam-row {
     grid-template-columns: 1fr;
   }
 }
