@@ -192,6 +192,7 @@ header .container {
 
 .steam-widget iframe {
   display: block;
+  border: none;
 }
 
 .steam-wishlist-mobile {
@@ -478,6 +479,16 @@ footer {
 
   .steam-wishlist-mobile {
     display: inline-block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }
 
