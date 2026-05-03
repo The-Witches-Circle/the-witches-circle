@@ -115,8 +115,13 @@
             <div class="member-info">
               <span class="member-name">Helen Allien Poe</span>
               <span class="member-title">Rune Enchanter</span>
-              <span class="member-role">Head of Tech &amp; R&amp;D</span>
+              <span class="member-role">Tech Head &amp; Programmer </span>
               <!-- <span class="member-quote">We are the granddaughters of the witches you couldn't burn.</span> -->
+              <div class="member-socials">
+                <a href="https://github.com/besteto" class="member-social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </div>
             </div>
           </li>
           <li class="team-member">
@@ -146,11 +151,17 @@
       <div class="container">
         <h2>Follow Our Journey</h2>
         <div class="social-links">
-          <a href="https://www.linkedin.com/company/thewitchescircle/" class="social-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <i class="fa-brands fa-linkedin-in"></i>
+          <a href="https://x.com/WitchesAndGames" class="social-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.threads.com/@the.witches.circle.games" class="social-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="Threads">
+            <i class="fa-brands fa-threads"></i>
           </a>
           <a href="https://bsky.app/profile/witches-and-games.bsky.social" class="social-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
             <i class="fa-brands fa-bluesky"></i>
+          </a>
+          <a href="https://www.instagram.com/the.witches.circle.games/" class="social-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
           </a>
           <a href="https://discord.gg/TPscTx6byT" class="social-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="Discord">
             <i class="fa-brands fa-discord"></i>
@@ -160,6 +171,9 @@
           </a>
           <a href="mailto:summon&#64;thewitchescircle.games" class="social-icon-btn" aria-label="Email" data-user="summon" data-domain="thewitchescircle.games">
             <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/thewitchescircle/" class="social-icon-btn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
           </a>
         </div>
       </div>
@@ -173,66 +187,7 @@
     </div>
   </footer>
 
-  <script>
-    document.querySelectorAll('.email-link, .social-icon-btn[data-user]').forEach(function(link) {
-      var addr = link.dataset.user + '@' + link.dataset.domain;
-      link.href = 'mailto:' + addr;
-    });
-
-    (function () {
-      var trailer = document.getElementById('trailer');
-      trailer.addEventListener('click', function () {
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube-nocookie.com/embed/UNbVmLb0vMw?autoplay=1';
-        iframe.title = 'DOPROS — Official Trailer';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-        iframe.allowFullscreen = true;
-        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;';
-        trailer.innerHTML = '';
-        trailer.appendChild(iframe);
-        trailer.style.cursor = 'default';
-      });
-    })();
-
-    (function () {
-      var lightbox = document.getElementById('lightbox');
-      var lightboxImg = document.getElementById('lightbox-img');
-      var imgs = Array.from(document.querySelectorAll('.screenshots img'));
-      var current = 0;
-
-      function show(index) {
-        current = (index + imgs.length) % imgs.length;
-        lightboxImg.src = imgs[current].src;
-        lightboxImg.alt = imgs[current].alt;
-        lightbox.classList.add('active');
-      }
-
-      imgs.forEach(function (img, i) {
-        img.addEventListener('click', function () { show(i); });
-      });
-
-      document.getElementById('lightbox-prev').addEventListener('click', function (e) {
-        e.stopPropagation();
-        show(current - 1);
-      });
-
-      document.getElementById('lightbox-next').addEventListener('click', function (e) {
-        e.stopPropagation();
-        show(current + 1);
-      });
-
-      lightbox.addEventListener('click', function () {
-        lightbox.classList.remove('active');
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') lightbox.classList.remove('active');
-        if (e.key === 'ArrowLeft') show(current - 1);
-        if (e.key === 'ArrowRight') show(current + 1);
-      });
-    })();
-  </script>
+  <script src="assets/js/main.js" defer></script>
 
 </body>
 </html>
