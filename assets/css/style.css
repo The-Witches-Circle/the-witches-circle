@@ -48,7 +48,7 @@ body {
 /* --- Header --- */
 header {
   background-color: var(--color-bg-dark);
-  background-image: url('../images/header-banner.png');
+  background-image: url('../images/header-banner.webp');
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid var(--color-surface);
