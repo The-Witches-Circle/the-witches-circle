@@ -125,6 +125,7 @@ header .container {
   display: block;
   max-width: 320px;
   width: 100%;
+  height: auto;
   margin-bottom: 1rem;
   /* Black logo on white bg — invert to white; screen blend removes the resulting black bg on dark cards */
   filter: invert(1) brightness(0.9);
@@ -257,6 +258,7 @@ header .container {
 
 .screenshots img {
   width: 100%;
+  height: auto;
   display: block;
   border-radius: 6px;
   border: 1px solid var(--color-surface);
@@ -347,6 +349,7 @@ header .container {
 
 .member-photo {
   width: 130px;
+  height: auto;
   flex-shrink: 0;
   object-fit: cover;
   object-position: top;
